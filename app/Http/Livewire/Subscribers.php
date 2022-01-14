@@ -7,6 +7,12 @@ use App\Models\Subscriber;
 
 class Subscribers extends Component
 {
+    public $search = '';
+
+    protected $queryString = [
+        'search' => ['except' => '']
+    ];
+
     public function delete(Subscriber $subscriber)
     {
         $subscriber->delete();
@@ -14,8 +20,13 @@ class Subscribers extends Component
 
     public function render()
     {
+//        $subscribers = Subscriber::when($this->search, function ($q) {
+//            $q->where('email', 'like', "%{$this->search}%");
+//        })->get();
+        $subscribers = Subscriber::where('email', 'like', "%{$this->search}%")->get();
+
         return view('livewire.subscribers')->with([
-            'subscribers' => Subscriber::all()
+            'subscribers' => $subscribers
         ]);
     }
 }
