@@ -15,11 +15,4 @@ class SubscriberController extends Controller
 
         return redirect('/?verified=1');
     }
-
-    public function all()
-    {
-        return view('subscribers.all')->with([
-            'subscribers' => Subscriber::all()
-        ]);
-    }
 }
