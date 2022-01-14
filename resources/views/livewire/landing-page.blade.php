@@ -1,6 +1,6 @@
 <div>
     <div
-        class="flex flex-col bg-indigo-900 w-full h-screen"
+        class="flex flex-col bg-gradient-to-r from-indigo-900 to-indigo-600 w-full h-screen"
         x-data="{
             showSubscribe: @entangle('showSubscribe'),
             showSuccess: @entangle('showSuccess')
